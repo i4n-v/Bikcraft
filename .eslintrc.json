@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["import", "react", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    // General rules
+    "no-console": "warn",
+    "no-extra-boolean-cast": "off",
+    "no-constant-condition": "off",
+
+    //typescript rules
+    "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
+
+    // Import plugin
+    "import/first": "error",
+    "import/no-amd": "error",
+    "import/no-anonymous-default-export": "warn",
+    "import/no-webpack-loader-syntax": "error",
+
+    // Prettier
+    "prettier/prettier": 0,
+
+    // React eslint plugin specific rules
+    "react/jsx-no-target-blank": "off",
+    "no-unused-vars": "warn",
+    "react/no-unknown-property": "warn",
+    "react/prop-types": 0,
+    "react/forbid-foreign-prop-types": [
+      "warn",
+      {
+        "allowInPropTypes": true
+      }
+    ],
+    "react/jsx-pascal-case": [
+      "warn",
+      {
+        "allowAllCaps": true,
+        "ignore": []
+      }
+    ],
+    "react/style-prop-object": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css", ".html"]
+      }
+    }
+  }
+}
