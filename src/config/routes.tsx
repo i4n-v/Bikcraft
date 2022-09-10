@@ -1,7 +1,7 @@
 import React from "react";
-import * as RouterDOM from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
 
-const routes: RouterDOM.RouteObject[] = [
+const routes: RouteObject[] = [
   {
     path: "/",
     element: <>Menino moreno</>,
