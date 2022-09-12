@@ -7,7 +7,14 @@ import IntroductionImage from "../../assets/img/photos/introduction.jpg";
 const Introduction = styled.main`
   background-color: #000000;
   color: #FFFFFF;
-  box-shadow: inset 0 -120px;
+  box-shadow: inset 0 -120px #FFFFFF;
+
+  @media (max-width: 800px) {
+    background: #111111;
+    padding-top: 40px;
+    box-shadow: inset 0 -60px #FFFFFF;
+
+  }
 `;
 
 const Container = styled.div`
@@ -17,17 +24,35 @@ const Container = styled.div`
   max-width: 1200px;
   padding: 0px 20px;
   margin: 0px auto;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 `;
 
 const Content = styled.div`
   align-self: end;
   padding-bottom: 200px;
+
+  @media (max-width: 800px) {
+    padding-bottom: 0px;
+  }
 `;
 
 const Title = styled.h1`
   margin-bottom: 32px;
   font-size: 64px;
   line-height: 1.125;
+
+  @media (max-width: 1200px) {
+    font-size: 48px;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
 `;
 
 const Description = styled.p`
@@ -35,6 +60,10 @@ const Description = styled.p`
   font-size: 24px;
   line-height: 1.5;
   color: #B2B2B2;
+
+  @media (max-width: 1200px) {
+    font-size: 18px;
+  }
 `;
 
 const Dot = styled.span`
@@ -44,6 +73,11 @@ const Dot = styled.span`
 const Image = styled.img`
   height: 100%;
   object-fit: cover;
+
+  @media (max-width: 800px) {
+    height: 300px;
+    width: 100%;
+  }
 `;
 
 const Home = () => {

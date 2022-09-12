@@ -18,6 +18,11 @@ const Link = styled(NavLink)`
   &:hover {
     background: linear-gradient(#FFB60D, #E59317); 
   }
+
+  @media (max-width: 600px) {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
 `;
 
 const LinkButton = ({ to, children }: NavLinkProps) => {
