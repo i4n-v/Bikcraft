@@ -4,7 +4,7 @@ import { ReactComponent as BikcraftLogo } from "../../assets/svg/bikcraft-logo.s
 import { NavLink } from "react-router-dom";
 
 const Header = styled.header`
-  background-color: #000000;
+  background-color: var(--c12);
 `;
 
 const Container = styled.div`
@@ -38,15 +38,17 @@ const Link = styled(NavLink)`
     `
     display: inline-block;
     font-size: 18px;
-    color: #FFFFFF;
+    color: var(--w);
     border-radius: 4px;
     padding: 16px 0px;
     position: relative;
+    font-family: Poppins;
+    font-weight: 400;
 
     &:after {
       content: "";
       display: block;
-      background: #FFFFFF;
+      background: var(--w);
       height: 2px;
       width: 0px;
       margin: 4px 0;
@@ -59,11 +61,11 @@ const Link = styled(NavLink)`
     }
 
     @media (max-width: 800px) {
-      background: #111111;
+      background: var(--c11);
       padding: 12px 16px;
 
       &:hover {
-        background: #2E2E2E;
+        background: var(--c10);
       }
 
       &:after {

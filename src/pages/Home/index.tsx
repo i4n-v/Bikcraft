@@ -3,16 +3,17 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LinkButton } from "../../components/Buttons";
 import IntroductionImage from "../../assets/img/photos/introduction.jpg";
+import { LargeText, MediumText, Dot } from "../../components/Typographies";
 
 const Introduction = styled.main`
-  background-color: #000000;
-  color: #FFFFFF;
-  box-shadow: inset 0 -120px #FFFFFF;
+  background-color: var(--c12);
+  color: var(--w);
+  box-shadow: inset 0 -120px var(--w);
 
   @media (max-width: 800px) {
-    background: #111111;
+    background: var(--c11);
     padding-top: 40px;
-    box-shadow: inset 0 -60px #FFFFFF;
+    box-shadow: inset 0 -60px var(--w);
 
   }
 `;
@@ -40,34 +41,17 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled(LargeText)`
   margin-bottom: 32px;
-  font-size: 64px;
-  line-height: 1.125;
-
-  @media (max-width: 1200px) {
-    font-size: 48px;
-  }
 
   @media (max-width: 800px) {
-    font-size: 32px;
     margin-bottom: 16px;
   }
 `;
 
-const Description = styled.p`
+const Description = styled(MediumText)`
   margin-bottom: 20px;
-  font-size: 24px;
-  line-height: 1.5;
-  color: #B2B2B2;
-
-  @media (max-width: 1200px) {
-    font-size: 18px;
-  }
-`;
-
-const Dot = styled.span`
-  color: #FFBB00;
+  color: var(--c05);
 `;
 
 const Image = styled.img`
@@ -82,27 +66,29 @@ const Image = styled.img`
 
 const Home = () => {
   return (
-    <Introduction>
+    <>
       <Helmet>
-        <title>Bikcraft - Bicicletas Eléticas</title>
+        <title>Bikcraft - Bicicletas Elétricas</title>
       </Helmet>
 
-      <Container>
-        <Content>
-          <Title>
-            Bicicletas feitas sob medida<Dot>.</Dot>
-          </Title>
-          <Description>
-            Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para o cliente. Explore o mundo na sua
-            velocidade com a Bikcraft.
-          </Description>
-          <LinkButton to="/bicicletas">Escolha a sua</LinkButton>
-        </Content>
-        <div>
-          <Image src={IntroductionImage} alt="Bicicleta elétrica preta." />
-        </div>
-      </Container>
-    </Introduction>
+      <Introduction>
+        <Container>
+          <Content>
+            <Title>
+              Bicicletas feitas sob medida<Dot>.</Dot>
+            </Title>
+            <Description>
+              Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para o cliente. Explore o mundo na
+              sua velocidade com a Bikcraft.
+            </Description>
+            <LinkButton to="/bicicletas">Escolha a sua</LinkButton>
+          </Content>
+          <div>
+            <Image src={IntroductionImage} alt="Bicicleta elétrica preta." />
+          </div>
+        </Container>
+      </Introduction>
+    </>
   );
 };
 
