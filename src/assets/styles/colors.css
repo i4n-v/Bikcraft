@@ -1,0 +1,27 @@
+:root {
+  /* Base colors */
+  --c12: #000000;
+  --c11: #111111;
+  --c10: #2e2e2e;
+  --c09: #404040;
+  --c08: #595959;
+  --c07: #707070;
+  --c06: #9c9c9c;
+  --c05: #b2b2b2;
+  --c04: #cccccc;
+  --c03: #dedede;
+  --c02: #ededed;
+  --c01: #f7f7f7;
+  --w: #ffffff;
+
+  /* Primary Colors */
+  --p05: #332200;
+  --p04: #664400;
+  --p03: #a66f00;
+  --p02: #e5a40b;
+  --p01: #ffbb00;
+
+  /* Gradients */
+  --gdr01: linear-gradient(#ffbf00, #f2960c);
+  --gdr02: linear-gradient(#ffb60d, #e59317);
+}
