@@ -13,9 +13,8 @@ const Container = styled.div`
   gap: 20px;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 const List = styled.ul`
@@ -37,13 +36,10 @@ const Link = styled(NavLink)`
     typeof props.children === "string" &&
     `
     display: inline-block;
-    font-size: 18px;
     color: var(--w);
     border-radius: 4px;
     padding: 16px 0px;
     position: relative;
-    font-family: Poppins;
-    font-weight: 400;
 
     &:after {
       content: "";
@@ -83,12 +79,12 @@ const Link = styled(NavLink)`
 const Menu = () => {
   return (
     <Header>
-      <Container>
+      <Container className="container">
         <Link to="/">
           <BikcraftLogo />
         </Link>
         <nav aria-label="primária">
-          <List>
+          <List className="poppins-m">
             <li>
               <Link to="#">Bicicletas</Link>
             </li>
