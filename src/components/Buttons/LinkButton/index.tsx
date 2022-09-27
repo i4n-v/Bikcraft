@@ -9,10 +9,7 @@ const LinkButton = styled(NavLink)`
   box-shadow: var(--shadow01);
   text-transform: uppercase;
   color: var(--p05);
-  font-size: 18px;
-  line-height: 1.33;
-  font-family: Poppins;
-  font-weight: 600;
+  font: 600 1.125rem/1.35 "Poppins", sans-serif;
 
   &:hover {
     background: var(--gdr02); 
@@ -20,7 +17,7 @@ const LinkButton = styled(NavLink)`
 
   @media (max-width: 600px) {
     padding: 12px 16px;
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
