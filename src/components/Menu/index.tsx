@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as BikcraftLogo } from "../../assets/svg/bikcraft-logo.svg";
 import { NavLink } from "react-router-dom";
+import { ReactComponent as BikcraftLogo } from "../../assets/svg/bikcraft-logo.svg";
 
 const Header = styled.header`
   background-color: var(--c12);
@@ -86,13 +86,13 @@ const Menu = () => {
         <nav aria-label="primária">
           <List className="poppins-m">
             <li>
-              <Link to="#">Bicicletas</Link>
+              <Link to="/bicicletas">Bicicletas</Link>
             </li>
             <li>
-              <Link to="#">Seguro</Link>
+              <Link to="/seguros">Seguro</Link>
             </li>
             <li>
-              <Link to="#">Contato</Link>
+              <Link to="/contato">Contato</Link>
             </li>
           </List>
         </nav>
