@@ -6,6 +6,7 @@ import { LinkButton, UnderlineButton } from "../../components/Buttons";
 import { NavLink } from "react-router-dom";
 import introductionImage from "../../assets/img/photos/introduction.jpg";
 import tecnologiesImage from "../../assets/img/photos/tecnologies.jpg";
+import testimonialImage from "../../assets/img/photos/testimonial.jpg";
 import magicHomeImage from "../../assets/img/bikes/magic-home.jpg";
 import nimbusHomeImage from "../../assets/img/bikes/nimbus-home.jpg";
 import nebulaHomeImage from "../../assets/img/bikes/nebula-home.jpg";
@@ -230,6 +231,10 @@ const Partners = styled.section`
       grid-template-columns: repeat(2, 1fr);
     }
 
+    > ul > li {
+      padding: 20px;
+    }
+
     > ul > li:nth-child(n + 3) {
       border-top: 2px solid var(--c02);
     }
@@ -237,6 +242,73 @@ const Partners = styled.section`
     > ul > li:nth-child(odd) {
       border-left: none;
     }
+  }
+`;
+
+const Testimony = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--p01);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;   
+
+    img {
+      max-height: 200px;
+    }
+  }
+`;
+
+const TestimonyContent = styled.div`
+  padding: 40px 40px 80px 80px;
+  align-self: end;
+  
+  > blockquote {
+    color: var(--p05)
+  }
+  
+  > blockquote > p {
+    font-family: Merriweather, sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    margin-bottom: 32px;
+    max-width: 32ch;
+    position: relative;
+  }
+  
+  > blockquote > p:before,
+  > blockquote > p:after {
+    font-size: 5rem;
+    color: var(--p02);
+    position: absolute;
+  }
+
+  > blockquote > p:before {
+    content: "“";    
+    left: -50px;
+    top: -20px;
+  }
+
+  > blockquote > p:after {
+    content: "”";
+  }
+
+  > span {
+    color: var(--p04);
+  }
+
+  @media (max-width: 800px) {
+    text-align: center;
+    padding: 40px 20px;
+    justify-self: center;
   }
 `;
 
@@ -336,6 +408,21 @@ const Home = () => {
           ))}
         </ul>
       </Partners>
+
+      <Testimony aria-label="Depoimento">
+        <div>
+          <img src={testimonialImage} alt="Pessoa pedalando uma bicicleta Bikcraft" />
+        </div>
+        <TestimonyContent>
+          <blockquote className="poppins-xl">
+            <p>
+              Pedalar sempre foi a minha paixão, o que o pessoal da Bikcraft fez foi intensificar o meu amor por esta
+              atividade. Recomendo à todos que amo.
+            </p>
+          </blockquote>
+          <span className="poppins-m-b">Ana Júlia</span>
+        </TestimonyContent>
+      </Testimony>
     </>
   );
 };
