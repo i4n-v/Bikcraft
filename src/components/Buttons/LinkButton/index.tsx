@@ -4,6 +4,7 @@ import styled from "styled-components";
 const LinkButton = styled(NavLink)`
   display: inline-block;
   padding: 16px 32px;
+  max-width: max-content;
   background: var(--gdr01);
   border-radius: 5px;
   box-shadow: var(--shadow01);

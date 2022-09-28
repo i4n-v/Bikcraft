@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { BikeCard, InformationCard } from "../../components/Cards";
+import { BikeCard, InformationCard, InsuranceCard } from "../../components/Cards";
 import { LinkButton, UnderlineButton } from "../../components/Buttons";
 import { NavLink } from "react-router-dom";
 import introductionImage from "../../assets/img/photos/introduction.jpg";
@@ -312,6 +312,29 @@ const TestimonyContent = styled.div`
   }
 `;
 
+const Insurance = styled.article`
+  background: var(--c11);
+
+  > div {
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  > div > h2 {
+    color: var(--w);
+    grid-column: 1/-1;
+  }
+
+  @media (max-width: 800px) {
+    > div {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
+
 const Home = () => {
   const partners = [Caravan, Ranek, Handel, Dogs, Lescone, Flexblog, Wildbeast, Surfbot];
 
@@ -423,6 +446,33 @@ const Home = () => {
           <span className="poppins-m-b">Ana Júlia</span>
         </TestimonyContent>
       </Testimony>
+
+      <Insurance>
+        <div className="container">
+          <h2 className="poppins-xxl">
+            seguros<span className="dot">.</span>
+          </h2>
+          <InsuranceCard
+            title="PRATA"
+            price={199}
+            color="var(--c06)"
+            items={["Duas trocas por ano", "Assitência técnica", "Suporte 08h às 18h", "Cobertura estadual"]}
+          />
+          <InsuranceCard
+            title="OURO"
+            price={299}
+            color="var(--p01)"
+            items={[
+              "Cinco trocas por ano",
+              "Assitência especial",
+              "Suporte 24h",
+              "Cobertura nacional",
+              "Desconto em parceiros",
+              "Acesso ao Clube Bikecraft",
+            ]}
+          />
+        </div>
+      </Insurance>
     </>
   );
 };
