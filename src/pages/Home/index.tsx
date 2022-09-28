@@ -11,6 +11,14 @@ import nimbusHomeImage from "../../assets/img/bikes/nimbus-home.jpg";
 import nebulaHomeImage from "../../assets/img/bikes/nebula-home.jpg";
 import { ReactComponent as Eletrical } from "../../assets/svg/icons/eletrical.svg";
 import { ReactComponent as Searcher } from "../../assets/svg/icons/searcher.svg";
+import { ReactComponent as Caravan } from "../../assets/svg/partners/caravan.svg";
+import { ReactComponent as Dogs } from "../../assets/svg/partners/dogs.svg";
+import { ReactComponent as Flexblog } from "../../assets/svg/partners/flexblog.svg";
+import { ReactComponent as Handel } from "../../assets/svg/partners/handel.svg";
+import { ReactComponent as Lescone } from "../../assets/svg/partners/lescone.svg";
+import { ReactComponent as Ranek } from "../../assets/svg/partners/ranek.svg";
+import { ReactComponent as Surfbot } from "../../assets/svg/partners/surfbot.svg";
+import { ReactComponent as Wildbeast } from "../../assets/svg/partners/wildbeast.svg";
 
 const Introduction = styled.main`
   background-color: var(--c12);
@@ -178,7 +186,63 @@ const TecnologyContent = styled.div`
   }
 `;
 
+const Partners = styled.section`
+  padding: 60px 0px 120px 0px;
+
+  > h2 {
+    margin-bottom: 60px;
+  }
+
+  > ul {
+    max-width: 1400px;
+    padding: 0px 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  > ul > li {
+    display: flex;
+    padding: 32px;
+    border-left: 2px solid var(--c02);
+  }
+
+  > ul > li:first-child, > ul > li:nth-child(5) {
+    border-left: none;
+  }
+
+  > ul > li:nth-child(n + 5) {
+    border-top: 2px solid var(--c02);
+  }
+
+  > ul > li > svg {
+    margin: auto;
+  }
+
+  @media (max-width: 1100px) {
+    padding-bottom: 60px;
+
+    > h2 {
+      margin-bottom: 20px;
+    }
+
+    > ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    > ul > li:nth-child(n + 3) {
+      border-top: 2px solid var(--c02);
+    }
+
+    > ul > li:nth-child(odd) {
+      border-left: none;
+    }
+  }
+`;
+
 const Home = () => {
+  const partners = [Caravan, Ranek, Handel, Dogs, Lescone, Flexblog, Wildbeast, Surfbot];
+
   return (
     <>
       <Helmet>
@@ -258,6 +322,20 @@ const Home = () => {
           </div>
         </div>
       </Tecnology>
+
+      <Partners aria-label="Nossos parceiros">
+        <h2 className="poppins-xxl container">
+          nossos parceiros<span className="dot">.</span>
+        </h2>
+
+        <ul>
+          {partners.map((Icon, index) => (
+            <li key={`partner-${index}`}>
+              <Icon />
+            </li>
+          ))}
+        </ul>
+      </Partners>
     </>
   );
 };
