@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import arrow from "../../../assets/svg/icons/arrow.svg";
 
 const LinkButton = styled(NavLink)`
   display: inline-block;
@@ -14,6 +15,25 @@ const LinkButton = styled(NavLink)`
 
   &:hover {
     background: var(--gdr02); 
+  }
+
+  &.arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  &.arrow:after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    margin-left: 12px;
+    background: url(${arrow});
+    transition: transform .2s;
+  }
+
+  &.arrow:hover&:after {
+    transform: translateX(4px);
   }
 
   @media (max-width: 600px) {
