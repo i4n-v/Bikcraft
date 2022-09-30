@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 type PageTitleProps = {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
 };
 
 export type { PageTitleProps };
