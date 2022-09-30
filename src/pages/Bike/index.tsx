@@ -3,12 +3,13 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { PageTitle } from "../../components";
 import { LinkButton } from "../../components/Buttons";
-import { InformationCard } from "../../components/Cards";
-import { useNavigate, useParams } from "react-router-dom";
+import { BikeCard, InformationCard } from "../../components/Cards";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { IImageElement } from "../../types/interfaces/html";
 import nimbusImage from "../../assets/img/bike/nimbus1.jpg";
 import magicImage from "../../assets/img/bike/nimbus2.jpg";
 import nebulaImage from "../../assets/img/bike/nimbus3.jpg";
+import safeImage from "../../assets/img/photos/safes.jpg";
 import { ReactComponent as Delivere } from "../../assets/svg/icons/delivere.svg";
 import { ReactComponent as Inventory } from "../../assets/svg/icons/inventory.svg";
 import { ReactComponent as Eletrical } from "../../assets/svg/icons/eletrical.svg";
@@ -20,43 +21,39 @@ type IBike = {
   name: string;
   price: string;
   description: string;
-  images: IImageElement[];
+  link: string;
+  image: IImageElement;
+  others: IBike[];
 };
 
 const nimbus: IBike = {
   name: "Nimbus Stark",
   price: "R$ 4999",
+  link: "/bicicletas/nimbus_stark",
   description:
     "A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
-  images: [
-    { src: nimbusImage, alt: "" },
-    { src: nebulaImage, alt: "" },
-    { src: magicImage, alt: "" },
-  ],
+  image: { src: nimbusImage, alt: "" },
+  others: [],
 };
 
 const magic: IBike = {
   name: "Magic Might",
   price: "R$ 2499",
+  link: "/bicicletas/magic_might",
   description:
     "A Magic Might é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
-  images: [
-    { src: magicImage, alt: "" },
-    { src: nimbusImage, alt: "" },
-    { src: nebulaImage, alt: "" },
-  ],
+  image: { src: magicImage, alt: "" },
+  others: [],
 };
 
 const nebula: IBike = {
   name: "Nebula Cosmic",
   price: "R$ 3999",
+  link: "/bicicletas/nebula_cosmic",
   description:
     "A Nebula Cosmic é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
-  images: [
-    { src: nebulaImage, alt: "" },
-    { src: nimbusImage, alt: "" },
-    { src: magicImage, alt: "" },
-  ],
+  image: { src: nebulaImage, alt: "" },
+  others: [],
 };
 
 const BikeContainer = styled.main`
@@ -174,18 +171,98 @@ const DataSheet = styled.ul`
   }
 `;
 
-const Terms = () => {
+const BikeList = styled.article`
+  padding: 60px 0px 120px 0px;
+
+  > h2 {
+    margin: 0px auto 40px auto; 
+  }
+
+  > ul {
+    display: flex;
+    gap: 40px;
+    padding: 0px 0px 20px 0px;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  > ul > li {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  > a {
+    display: block;
+  }
+
+  @media (max-width: 800px) {
+    padding: 60px 0px 60px 0px;
+
+    > ul {
+      gap: 20px;
+
+    }
+  }
+`;
+
+const Insurance = styled.article`
+  background: var(--c11);
+  box-shadow: inset 0px 120px var(--w), inset 0px -120px var(--c12);
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  > div > div + div {
+    padding: 180px 0px;
+  } 
+
+  > div > div > h2 {
+    color: var(--w);
+    margin-bottom: 32px;
+  }
+
+  > div > div > p {
+    color: var(--c05);
+    margin-bottom: 20px;
+  }
+
+  > div > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 800px) {
+    box-shadow: inset -60px var(--c12);
+
+    > div {
+      grid-template-columns: 1fr;
+
+    }
+
+    > div > div + div {
+      grid-row: 1;
+      padding: 40px 0px 0px 0px;
+    }
+  }
+`;
+
+const Bike = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [bike, setBike] = useState<IBike>();
 
   useEffect(() => {
     if (name === "nimbus_stark") {
-      setBike(nimbus);
+      setBike({ ...nimbus, others: [magic, nebula] });
     } else if (name === "magic_might") {
-      setBike(magic);
+      setBike({ ...magic, others: [nimbus, nebula] });
     } else if (name === "nebula_cosmic") {
-      setBike(nebula);
+      setBike({ ...nebula, others: [nimbus, magic] });
     } else {
       navigate("/");
     }
@@ -194,14 +271,15 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Termos e Condições | Bikcraft</title>
+        <title>{bike?.name || "Bicicleta"} | Bikcraft</title>
       </Helmet>
 
       <BikeContainer>
         <PageTitle title={bike?.name} subtitle={bike?.price} />
         <BikeContent className="container">
           <Images>
-            {bike?.images.map(({ src, alt }) => (
+            <img src={bike?.image.src} alt={bike?.image.alt} />
+            {bike?.others.map(({ image: { src, alt } }) => (
               <img key={src} src={src} alt={alt} />
             ))}
           </Images>
@@ -271,8 +349,41 @@ const Terms = () => {
           </Informations>
         </BikeContent>
       </BikeContainer>
+
+      <BikeList className="container">
+        <h2 className="poppins-xxl">
+          escolha a sua<span className="dot">.</span>
+        </h2>
+
+        <ul>
+          {bike?.others.map(({ name, price, link, image }) => (
+            <li key={name}>
+              <NavLink to={link}>
+                <BikeCard title={name} price={price.replace("R$ ", "")} image={{ src: image.src, alt: image.alt }} />
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </BikeList>
+
+      <Insurance>
+        <div>
+          <div>
+            <img src={safeImage} alt="Pessoa parada em cima de uma bicicleta" />
+          </div>
+          <div>
+            <h2 className="poppins-xxl">
+              Pedale mais tranquilo com o nosso <span className="dot">seguro.</span>
+            </h2>
+            <p className="roboto-l">
+              Escreva-se em um dos planos do nosso seguro bikcraft e aproveite diversos benefícios.
+            </p>
+            <LinkButton to="/seguros">CONHEÇA MAIS</LinkButton>
+          </div>
+        </div>
+      </Insurance>
     </>
   );
 };
 
-export default Terms;
+export default Bike;
