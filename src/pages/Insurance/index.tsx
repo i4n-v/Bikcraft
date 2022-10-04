@@ -123,9 +123,9 @@ const Insurance = () => {
         <title>Seguros | Bikcraft</title>
       </Helmet>
 
-      <InsuranceContainer id="container">
+      <InsuranceContainer>
         <PageTitle title="você seguro" subtitle="escolha o seguro" />
-        <div className="container">
+        <div id="container" className="container">
           <InsuranceCard
             title="PRATA"
             price={199}
