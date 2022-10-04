@@ -160,7 +160,7 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Termos e Condições | Bikcraft</title>
+        <title>Contato | Bikcraft</title>
       </Helmet>
 
       <GlobalStyle />

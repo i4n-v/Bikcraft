@@ -10,6 +10,8 @@ type IStoreCardProps = {
   items: string[][];
 };
 
+export type { IStoreCardProps };
+
 const StoreCardContainer = styled.div`
   border-radius: 4px;
   background: var(--w);

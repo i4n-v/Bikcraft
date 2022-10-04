@@ -1,6 +1,6 @@
 import React from "react";
 import type { RouteObject } from "react-router-dom";
-import { Home, Terms, Bikes, Bike, Insurance, Contact } from "../pages";
+import { Home, Terms, Bikes, Bike, Insurance, Contact, Budgets } from "../pages";
 
 const routes: RouteObject[] = [
   {
@@ -35,6 +35,10 @@ const routes: RouteObject[] = [
   {
     path: "/contato",
     element: <Contact />,
+  },
+  {
+    path: "/orcamentos",
+    element: <Budgets />,
   },
 ];
 
