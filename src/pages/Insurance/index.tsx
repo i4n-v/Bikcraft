@@ -14,7 +14,7 @@ import { ReactComponent as Sustentable } from "../../assets/svg/icons/sustentabl
 const InsuranceContainer = styled.article`
   background: var(--c11);
 
-  > div {
+  #container {
     padding-bottom: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -23,7 +23,7 @@ const InsuranceContainer = styled.article`
   }
 
   @media (max-width: 800px) {
-    > div {
+    #container {
       grid-template-columns: 1fr;
     }
   }
@@ -123,7 +123,7 @@ const Insurance = () => {
         <title>Seguros | Bikcraft</title>
       </Helmet>
 
-      <InsuranceContainer>
+      <InsuranceContainer id="container">
         <PageTitle title="você seguro" subtitle="escolha o seguro" />
         <div className="container">
           <InsuranceCard

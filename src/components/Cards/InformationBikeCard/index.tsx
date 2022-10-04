@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import type { IImageElement } from "../../../types/interfaces/html";
 import { LinkButton } from "../../Buttons";
+import topRight from "../../../assets/svg/decorations/top-right.svg";
 
 type IFeature = {
   icon: JSX.Element;
@@ -34,6 +35,7 @@ const CardContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     padding: 60px 20px;
+    background: url(${topRight}) no-repeat top 40px right 20px;
   }
 
   @media (max-width: 800px) {

@@ -11,6 +11,8 @@ import email from "../../assets/svg/icons/email.svg";
 import cellphone from "../../assets/svg/icons/cellphone.svg";
 import rj from "../../assets/img/stores/rj.jpg";
 import sp from "../../assets/img/stores/sp.jpg";
+import bottomLeft from "../../assets/svg/decorations/bottom-left.svg";
+import bottomRight from "../../assets/svg/decorations/bottom-right.svg";
 import { ReactComponent as Instagram } from "../../assets/svg/social/instagram-p.svg";
 import { ReactComponent as Facebook } from "../../assets/svg/social/facebook-p.svg";
 import { ReactComponent as Youtube } from "../../assets/svg/social/youtube-p.svg";
@@ -39,7 +41,7 @@ const ContactContainer = styled.div`
 `;
 
 const ContactSection = styled.section`
-  background: var(--c12);
+  background: var(--c12) url(${bottomLeft}) no-repeat bottom 20px left 20px;
   border-radius: 5px 0px 0px 5px;
 
   > h2 {
@@ -95,6 +97,7 @@ const ContactSection = styled.section`
 
   @media (max-width: 800px) {
     border-radius: 5px 5px 0px 0px;
+    background: var(--c12);
 
     address, > h2 {
       margin-bottom: 32px;
@@ -107,7 +110,7 @@ const ContactSection = styled.section`
 `;
 
 const FormSection = styled.section`
-  background: var(--w);
+  background: var(--w) url(${bottomRight}) no-repeat bottom 20px right 20px;
   border-radius: 0px 5px 5px 0px;
   
   > form {
@@ -122,6 +125,7 @@ const FormSection = styled.section`
   
   @media (max-width: 800px) {
     border-radius: 0px 0px 5px 5px;
+    background: var(--w);
   }
 
   @media (max-width: 600px) {

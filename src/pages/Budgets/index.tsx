@@ -8,6 +8,8 @@ import { BudgetCard } from "../../components/Cards";
 import nimbus from "../../assets/img/bikes/nimbus.jpg";
 import magic from "../../assets/img/bikes/magic.jpg";
 import nebula from "../../assets/img/bikes/nebula.jpg";
+import bottomLeft from "../../assets/svg/decorations/bottom-left.svg";
+import bottomRight from "../../assets/svg/decorations/bottom-right.svg";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -49,7 +51,7 @@ const FormContainer = styled.form`
 `;
 
 const Product = styled.div`
-  background: var(--c12);
+  background: var(--c12) url(${bottomLeft}) no-repeat bottom 20px left 20px;
   padding: 60px;
   border-radius: 5px 0px 0px 5px;   
   display: grid;
@@ -77,6 +79,7 @@ const Product = styled.div`
 
   @media (max-width: 800px) {
     border-radius: 5px 5px 0px 0px;
+    background: var(--c12);
   }
 
   @media (max-width: 400px) {
@@ -85,7 +88,7 @@ const Product = styled.div`
 `;
 
 const Datas = styled.div`
-  background: var(--w);
+  background: var(--w) url(${bottomRight}) no-repeat bottom 20px right 20px;
   border-radius: 0px 5px 5px 0px; 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,6 +110,7 @@ const Datas = styled.div`
   
   @media (max-width: 800px) {
     border-radius: 0px 0px 5px 5px;
+    background: var(--w);
   }
 
   @media (max-width: 600px) {    

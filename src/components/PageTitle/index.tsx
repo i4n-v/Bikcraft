@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import topRight from "../../assets/svg/decorations/top-right.svg";
 
 type PageTitleProps = {
   title?: string;
@@ -11,6 +12,10 @@ export type { PageTitleProps };
 const TitleContainer = styled.div`
   background: var(--c11);
   padding: 60px 20px;
+
+  > div {
+    background: url(${topRight}) no-repeat top right 20px;
+  }
 
   > div > p {
     color: var(--c05);

@@ -10,6 +10,8 @@ import testimonialImage from "../../assets/img/photos/testimonial.jpg";
 import magicHomeImage from "../../assets/img/bikes/magic-home.jpg";
 import nimbusHomeImage from "../../assets/img/bikes/nimbus-home.jpg";
 import nebulaHomeImage from "../../assets/img/bikes/nebula-home.jpg";
+import bottomLeft from "../../assets/svg/decorations/bottom-left.svg";
+import bottomRightP from "../../assets/svg/decorations/bottom-right-p.svg";
 import { ReactComponent as Eletrical } from "../../assets/svg/icons/eletrical.svg";
 import { ReactComponent as Searcher } from "../../assets/svg/icons/searcher.svg";
 import { ReactComponent as Caravan } from "../../assets/svg/partners/caravan.svg";
@@ -22,7 +24,7 @@ import { ReactComponent as Surfbot } from "../../assets/svg/partners/surfbot.svg
 import { ReactComponent as Wildbeast } from "../../assets/svg/partners/wildbeast.svg";
 
 const Introduction = styled.main`
-  background-color: var(--c12);
+  background: var(--c12) url(${bottomLeft}) no-repeat bottom 160px left 20px;
   color: var(--w);
   box-shadow: inset 0 -120px var(--w);
 
@@ -248,7 +250,7 @@ const Partners = styled.section`
 const Testimony = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--p01);
+  background: var(--p01) url(${bottomRightP}) no-repeat bottom 40px right 40px;;
   overflow: hidden;
 
   img {
@@ -256,6 +258,12 @@ const Testimony = styled.section`
     height: 100%;
     object-fit: cover;
     border-radius: 0px;
+  }
+
+  @media (min-width: 1200px) {
+    img {
+      max-height: 520px;
+    }
   }
 
   @media (max-width: 800px) {
