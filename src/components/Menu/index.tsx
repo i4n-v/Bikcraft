@@ -52,6 +52,10 @@ const Link = styled(NavLink)`
       position: absolute;
     }
 
+    &.active&:after {
+      width: 100%;
+    }
+
     &:hover&:after {
       width: 100%;
     }
@@ -86,13 +90,19 @@ const Menu = () => {
         <nav aria-label="primária">
           <List className="poppins-m">
             <li>
-              <Link to="/bicicletas">Bicicletas</Link>
+              <Link to="/bicicletas" className={({ isActive }) => (isActive ? "active" : "undefined")}>
+                Bicicletas
+              </Link>
             </li>
             <li>
-              <Link to="/seguros">Seguro</Link>
+              <Link to="/seguros" className={({ isActive }) => (isActive ? "active" : "undefined")}>
+                Seguro
+              </Link>
             </li>
             <li>
-              <Link to="/contato">Contato</Link>
+              <Link to="/contato" className={({ isActive }) => (isActive ? "active" : "undefined")}>
+                Contato
+              </Link>
             </li>
           </List>
         </nav>

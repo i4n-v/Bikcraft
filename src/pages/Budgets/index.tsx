@@ -73,7 +73,7 @@ const Product = styled.div`
   }
 
   > div > h2 {
-    color: var(--w);
+    color: var(--c05);
     margin-top: 20px;
   }
 
